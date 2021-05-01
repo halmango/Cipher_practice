@@ -1,0 +1,28 @@
+def solution(answers):
+    answer = []
+    student_1 = [1, 2, 3, 4, 5]*2000 # 학생1의 답
+    student_2 = [2, 1, 2, 3, 2, 4, 2, 5]*1250 # 학생2의 답
+    student_3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]*1000 # 학생3의 답
+    score_1 = 0 # 학생1의 점수
+    score_2 = 0 # 학생2의 점수
+    score_3 = 0 # 학생3의 점
+    # 맞춘 개수 구하기
+    for i in range(len(answers)):
+         # 학생1의 답과 정답과 비교하여 맞으면 점수를 1점 더하기
+        if student_1[i] == answers[i]:
+            score_1 += 1
+        # 학생2의 답과 정답과 비교하여 맞으면 점수를 1점 더하기
+        if student_2[i] == answers[i]: 
+            score_2 += 1
+         # 학생3의 답과 정답과 비교하여 맞으면 점수를 1점 더하기
+        if student_3[i] == answers[i]: 
+            score_3 += 1
+    max_score = max(score_1, score_2, score_3) # 가장 높은 점수 찾기
+    if max_score == score_1: # 학생1이 가장 높은 점수라면 1을 answer에 추가하여 리턴
+        answer.append(1)
+    if max_score == score_2: 
+        answer.append(2)
+    if max_score == score_3:
+        answer.append(3)
+        
+    return answer
